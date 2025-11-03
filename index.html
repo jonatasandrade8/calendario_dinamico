@@ -16,73 +16,75 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            padding: 20px;
+            padding: 12px;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             background: white;
             border-radius: 12px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            padding: 30px;
+            padding: 16px;
         }
 
         .header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             border-bottom: 3px solid #667eea;
-            padding-bottom: 20px;
+            padding-bottom: 16px;
         }
 
         .header h1 {
             color: #333;
-            font-size: 2.5em;
+            font-size: 1.8em;
             margin-bottom: 10px;
         }
 
         .header input {
-            font-size: 1.1em;
+            font-size: 1em;
             padding: 8px 12px;
             border: 2px solid #ddd;
             border-radius: 6px;
             text-align: center;
-            max-width: 400px;
+            max-width: 90%;
+            width: 100%;
         }
 
         .controls {
             display: flex;
-            gap: 20px;
-            margin-bottom: 30px;
+            gap: 12px;
+            margin-bottom: 20px;
             flex-wrap: wrap;
             justify-content: center;
         }
 
         .control-group {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             align-items: center;
         }
 
         .control-group label {
             font-weight: 600;
             color: #333;
+            font-size: 0.9em;
         }
 
         .control-group select {
-            padding: 8px 12px;
+            padding: 8px 10px;
             border: 2px solid #667eea;
             border-radius: 6px;
-            font-size: 1em;
+            font-size: 0.95em;
             background: white;
             cursor: pointer;
         }
 
         button {
-            padding: 10px 20px;
+            padding: 10px 16px;
             border: none;
             border-radius: 6px;
-            font-size: 1em;
+            font-size: 0.95em;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -113,7 +115,7 @@
             background: #ff6b6b;
             color: white;
             padding: 6px 12px;
-            font-size: 0.9em;
+            font-size: 0.85em;
         }
 
         .btn-danger:hover {
@@ -131,58 +133,137 @@
 
         .main-content {
             display: grid;
-            grid-template-columns: 1fr 350px;
-            gap: 30px;
+            grid-template-columns: 1fr 280px;
+            gap: 20px;
         }
 
-        @media (max-width: 1024px) {
+        @media (max-width: 768px) {
+            body {
+                padding: 8px;
+            }
+
+            .container {
+                padding: 12px;
+            }
+
+            .header {
+                margin-bottom: 16px;
+                padding-bottom: 12px;
+            }
+
+            .header h1 {
+                font-size: 1.4em;
+            }
+
+            .controls {
+                gap: 8px;
+                margin-bottom: 16px;
+            }
+
+            .control-group {
+                gap: 6px;
+            }
+
+            .control-group label {
+                display: none;
+            }
+
             .main-content {
                 grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            button {
+                padding: 8px 12px;
+                font-size: 0.85em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.2em;
+            }
+
+            .controls {
+                gap: 6px;
+            }
+
+            .control-group select {
+                font-size: 0.85em;
+                padding: 6px 8px;
+            }
+
+            button {
+                padding: 8px 10px;
+                font-size: 0.8em;
+                min-width: auto;
             }
         }
 
         .calendar-section {
             background: #f8f9fa;
-            padding: 25px;
+            padding: 16px;
             border-radius: 10px;
             border: 2px solid #e9ecef;
+            overflow-x: auto;
         }
 
         .calendar-title {
-            font-size: 1.8em;
+            font-size: 1.4em;
             font-weight: 700;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             color: #333;
         }
 
         .calendar {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
-            gap: 2px;
+            gap: 1px;
             background: #ddd;
-            padding: 2px;
-            border-radius: 8px;
+            padding: 1px;
+            border-radius: 6px;
             overflow: hidden;
+            min-width: 300px;
+        }
+
+        @media (max-width: 768px) {
+            .calendar {
+                gap: 0.5px;
+            }
         }
 
         .day-header {
             background: #333;
             color: white;
-            padding: 12px;
+            padding: 10px 4px;
             text-align: center;
             font-weight: 700;
-            font-size: 0.9em;
+            font-size: 0.75em;
         }
 
         .day-cell {
             background: white;
-            padding: 12px;
-            min-height: 100px;
+            padding: 8px;
+            min-height: 80px;
             border: 1px solid #ddd;
             position: relative;
             cursor: pointer;
             transition: all 0.2s ease;
+        }
+
+        @media (max-width: 768px) {
+            .day-cell {
+                min-height: 70px;
+                padding: 6px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .day-cell {
+                min-height: 60px;
+                padding: 4px;
+            }
         }
 
         .day-cell:hover {
@@ -202,22 +283,22 @@
 
         .day-number {
             font-weight: 700;
-            font-size: 1.1em;
+            font-size: 0.9em;
             color: #333;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
 
         .day-events {
             display: flex;
             flex-direction: column;
-            gap: 4px;
-            font-size: 0.75em;
+            gap: 2px;
+            font-size: 0.7em;
         }
 
         .event-item {
             background: #667eea;
             color: white;
-            padding: 4px 6px;
+            padding: 3px 4px;
             border-radius: 3px;
             white-space: nowrap;
             overflow: hidden;
@@ -231,28 +312,42 @@
 
         .sidebar {
             background: #f8f9fa;
-            padding: 20px;
+            padding: 16px;
             border-radius: 10px;
             border: 2px solid #e9ecef;
             max-height: 600px;
             overflow-y: auto;
         }
 
+        @media (max-width: 768px) {
+            .sidebar {
+                max-height: 400px;
+                padding: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sidebar {
+                max-height: 350px;
+                padding: 10px;
+            }
+        }
+
         .sidebar h3 {
             color: #333;
-            margin-bottom: 15px;
-            font-size: 1.2em;
+            margin-bottom: 12px;
+            font-size: 1em;
             border-bottom: 2px solid #667eea;
-            padding-bottom: 10px;
+            padding-bottom: 8px;
         }
 
         .event-form {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            margin-bottom: 20px;
+            gap: 8px;
+            margin-bottom: 16px;
             background: white;
-            padding: 15px;
+            padding: 12px;
             border-radius: 8px;
         }
 
@@ -269,34 +364,47 @@
             box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
         }
 
+        @media (max-width: 480px) {
+            .event-form {
+                gap: 6px;
+                padding: 10px;
+            }
+
+            .event-form input {
+                font-size: 0.85em;
+                padding: 6px;
+            }
+        }
+
         .events-list {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 6px;
         }
 
         .event-card {
             background: white;
-            padding: 10px;
+            padding: 8px;
             border-radius: 6px;
             border-left: 4px solid #667eea;
-            font-size: 0.9em;
+            font-size: 0.85em;
         }
 
         .event-card strong {
             display: block;
             color: #333;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
+            font-size: 0.9em;
         }
 
         .event-card span {
             display: block;
             color: #666;
-            font-size: 0.85em;
+            font-size: 0.75em;
         }
 
         .event-card button {
-            margin-top: 8px;
+            margin-top: 6px;
             width: 100%;
         }
 
@@ -311,6 +419,7 @@
             justify-content: center;
             align-items: center;
             z-index: 1000;
+            padding: 16px;
         }
 
         .modal.active {
@@ -319,32 +428,25 @@
 
         .modal-content {
             background: white;
-            padding: 30px;
+            padding: 24px;
             border-radius: 10px;
-            max-width: 400px;
-            width: 90%;
+            max-width: 350px;
+            width: 100%;
             box-shadow: 0 10px 40px rgba(0,0,0,0.3);
         }
 
         .modal-header {
-            font-size: 1.5em;
+            font-size: 1.2em;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             color: #333;
         }
 
         .modal-body {
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .modal-body input {
-            padding: 10px;
-            border: 2px solid #ddd;
-            border-radius: 6px;
-            font-size: 1em;
+            gap: 12px;
+            margin-bottom: 16px;
         }
 
         .modal-footer {
@@ -354,7 +456,7 @@
         }
 
         .modal-footer button {
-            min-width: 100px;
+            min-width: 80px;
         }
 
         .modal-footer .btn-secondary {
@@ -369,90 +471,33 @@
             display: none;
         }
 
-        .pdf-calendar {
-            background: white;
-            padding: 40px;
-        }
-
-        .pdf-title {
-            text-align: center;
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .pdf-calendar-grid {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 1px;
-            background: #333;
-            padding: 1px;
-        }
-
-        .pdf-day-header {
-            background: #333;
-            color: white;
-            padding: 15px;
-            text-align: center;
-            font-weight: 700;
-            font-size: 12px;
-        }
-
-        .pdf-day-cell {
-            background: white;
-            padding: 15px;
-            min-height: 80px;
-            border: 1px solid #999;
-            font-size: 11px;
-        }
-
-        .pdf-day-number {
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .pdf-events {
-            display: flex;
-            flex-direction: column;
-            gap: 3px;
-        }
-
-        .pdf-event {
-            background: #f0f0f0;
-            padding: 3px 5px;
-            border-radius: 2px;
-            font-size: 9px;
-            border-left: 2px solid #667eea;
-        }
-
-        .no-events {
-            color: #999;
-            font-size: 0.9em;
-            text-align: center;
-            padding: 10px;
-        }
-
         .success-message {
             background: #d4edda;
             color: #155724;
-            padding: 12px;
+            padding: 10px;
             border-radius: 6px;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             display: none;
+            font-size: 0.85em;
         }
 
         .success-message.show {
             display: block;
+        }
+
+        .no-events {
+            color: #999;
+            font-size: 0.85em;
+            text-align: center;
+            padding: 8px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>📅 Calendário Dinâmico</h1>
-            <input type="text" id="calendarName" placeholder="Nome do seu calendário" maxlength="50">
+            <h1>📅 Calendário</h1>
+            <input type="text" id="calendarName" placeholder="Nome do calendário" maxlength="50">
         </div>
 
         <div class="controls">
@@ -465,7 +510,7 @@
                 <select id="yearSelect"></select>
             </div>
             <button class="btn-primary" onclick="loadCalendar()">Carregar</button>
-            <button class="btn-export" onclick="generatePDF()">📥 Exportar PDF</button>
+            <button class="btn-export" onclick="generatePDF()">📥 PDF</button>
         </div>
 
         <div class="main-content">
@@ -475,17 +520,17 @@
             </div>
 
             <div class="sidebar">
-                <h3>Adicionar Evento</h3>
-                <div class="success-message" id="successMessage">✓ Evento adicionado com sucesso!</div>
+                <h3>Evento</h3>
+                <div class="success-message" id="successMessage">✓ Adicionado!</div>
                 <div class="event-form">
-                    <input type="number" id="eventDay" placeholder="Dia (1-31)" min="1" max="31">
-                    <input type="text" id="eventName" placeholder="Nome do evento" maxlength="30">
+                    <input type="number" id="eventDay" placeholder="Dia" min="1" max="31">
+                    <input type="text" id="eventName" placeholder="Evento" maxlength="30">
                     <button class="btn-secondary" onclick="addEvent()">Adicionar</button>
                 </div>
 
-                <h3>Eventos do Dia</h3>
+                <h3>Eventos</h3>
                 <div class="events-list" id="eventsList">
-                    <p class="no-events">Selecione um dia no calendário</p>
+                    <p class="no-events">Selecione um dia</p>
                 </div>
             </div>
         </div>
@@ -493,9 +538,9 @@
 
     <div class="modal" id="eventModal">
         <div class="modal-content">
-            <div class="modal-header">Confirmar Exclusão</div>
+            <div class="modal-header">Excluir Evento?</div>
             <div class="modal-body">
-                <p>Tem certeza que deseja excluir este evento?</p>
+                <p>Tem certeza?</p>
             </div>
             <div class="modal-footer">
                 <button class="btn-secondary" onclick="closeModal()">Cancelar</button>
@@ -611,7 +656,6 @@
                 }
 
                 cell.appendChild(eventsContainer);
-
                 cell.addEventListener('click', () => selectDay(day));
                 calendar.appendChild(cell);
             }
@@ -629,7 +673,7 @@
             const eventsList = document.getElementById('eventsList');
             
             if (selectedDay === null) {
-                eventsList.innerHTML = '<p class="no-events">Selecione um dia no calendário</p>';
+                eventsList.innerHTML = '<p class="no-events">Selecione um dia</p>';
                 return;
             }
 
@@ -637,7 +681,7 @@
             const events = calendarData[dateKey] || [];
 
             if (events.length === 0) {
-                eventsList.innerHTML = '<p class="no-events">Nenhum evento neste dia</p>';
+                eventsList.innerHTML = '<p class="no-events">Sem eventos</p>';
                 return;
             }
 
@@ -647,7 +691,7 @@
                 card.className = 'event-card';
                 card.innerHTML = `
                     <strong>📌 ${event}</strong>
-                    <span>${selectedDay} de ${monthNames[currentMonth]} de ${currentYear}</span>
+                    <span>${selectedDay} de ${monthNames[currentMonth]}</span>
                     <button class="btn-danger" onclick="deleteEvent(${index})">Excluir</button>
                 `;
                 eventsList.appendChild(card);
@@ -656,7 +700,7 @@
 
         function addEvent() {
             if (selectedDay === null) {
-                alert('Selecione um dia no calendário');
+                alert('Selecione um dia');
                 return;
             }
 
@@ -664,7 +708,7 @@
             const eventName = document.getElementById('eventName').value.trim();
 
             if (!eventName) {
-                alert('Digite o nome do evento');
+                alert('Digite o evento');
                 return;
             }
 
@@ -727,48 +771,152 @@
             const firstDay = new Date(currentYear, currentMonth, 1).getDay();
             const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
 
-            let html = `<div class="pdf-calendar">
-                <div class="pdf-title">${calendarName}</div>
-                <div class="pdf-title" style="font-size: 24px; letter-spacing: 1px;">${monthNames[currentMonth].toUpperCase()} DE ${currentYear}</div>
-                <div class="pdf-calendar-grid">`;
+            let html = `
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <meta charset="UTF-8">
+                <title>${calendarName}</title>
+                <style>
+                    @page {
+                        size: landscape;
+                        margin: 15mm;
+                    }
+                    body {
+                        font-family: Arial, sans-serif;
+                        margin: 0;
+                        padding: 0;
+                    }
+                    .pdf-header {
+                        text-align: center;
+                        margin-bottom: 20px;
+                    }
+                    .pdf-title {
+                        font-size: 32px;
+                        font-weight: bold;
+                        color: #333;
+                        margin: 0;
+                    }
+                    .pdf-subtitle {
+                        font-size: 24px;
+                        color: #666;
+                        margin: 8px 0 0 0;
+                        letter-spacing: 1px;
+                    }
+                    .calendar-grid {
+                        width: 100%;
+                        border-collapse: collapse;
+                        margin-top: 15px;
+                    }
+                    .day-header {
+                        background: #333;
+                        color: white;
+                        text-align: center;
+                        font-weight: bold;
+                        font-size: 12px;
+                        padding: 10px;
+                        border: 1px solid #333;
+                    }
+                    .day-cell {
+                        border: 1px solid #999;
+                        padding: 12px;
+                        vertical-align: top;
+                        height: 110px;
+                        width: 14.28%;
+                    }
+                    .day-cell.empty {
+                        background: #f0f0f0;
+                    }
+                    .day-number {
+                        font-weight: bold;
+                        font-size: 14px;
+                        margin-bottom: 8px;
+                        color: #333;
+                    }
+                    .events-container {
+                        font-size: 9px;
+                    }
+                    .event-item {
+                        background: #e8f0ff;
+                        border-left: 3px solid #667eea;
+                        padding: 4px 6px;
+                        margin-bottom: 4px;
+                        border-radius: 2px;
+                        color: #333;
+                        word-wrap: break-word;
+                    }
+                    .no-event {
+                        color: #ccc;
+                        font-size: 8px;
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="pdf-header">
+                    <h1 class="pdf-title">${calendarName}</h1>
+                    <p class="pdf-subtitle">${monthNames[currentMonth].toUpperCase()} DE ${currentYear}</p>
+                </div>
+                <table class="calendar-grid">
+                    <thead>
+                        <tr>`;
 
             dayNames.forEach(day => {
-                html += `<div class="pdf-day-header">${day}</div>`;
+                html += `<td class="day-header">${day}</td>`;
             });
 
+            html += `</tr></thead><tbody><tr>`;
+
             for (let i = 0; i < firstDay; i++) {
-                html += '<div class="pdf-day-cell"></div>';
+                html += '<td class="day-cell empty"></td>';
             }
+
+            let cellCount = firstDay;
 
             for (let day = 1; day <= daysInMonth; day++) {
                 const dateKey = getDateKey(currentYear, currentMonth, day);
                 const events = calendarData[dateKey] || [];
 
-                html += `<div class="pdf-day-cell">
-                    <div class="pdf-day-number">${day}</div>`;
+                html += `<td class="day-cell">
+                    <div class="day-number">${day}</div>
+                    <div class="events-container">`;
 
                 if (events.length > 0) {
-                    html += '<div class="pdf-events">';
                     events.forEach(event => {
-                        html += `<div class="pdf-event">• ${event}</div>`;
+                        html += `<div class="event-item">• ${event}</div>`;
                     });
-                    html += '</div>';
+                } else {
+                    html += '<div class="no-event"></div>';
                 }
 
-                html += '</div>';
+                html += `</div></td>`;
+
+                cellCount++;
+                if (cellCount % 7 === 0 && day < daysInMonth) {
+                    html += '</tr><tr>';
+                }
             }
 
-            html += '</div></div>';
+            const remainingCells = 7 - (cellCount % 7);
+            if (remainingCells < 7) {
+                for (let i = 0; i < remainingCells; i++) {
+                    html += '<td class="day-cell empty"></td>';
+                }
+            }
 
-            const element = document.getElementById('calendarForPdf');
+            html += `</tr></tbody>
+                </table>
+            </body>
+            </html>`;
+
+            const element = document.createElement('div');
             element.innerHTML = html;
 
             const opt = {
-                margin: 10,
+                margin: [15, 15, 15, 15],
                 filename: `${calendarName}-${monthNames[currentMonth]}-${currentYear}.pdf`,
                 image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2 },
-                jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' }
+                html2canvas: { scale: 2, useCORS: true },
+                jsPDF: { orientation: 'landscape', unit: 'mm', format: 'a4' }
             };
 
             html2pdf().set(opt).from(element).save();
